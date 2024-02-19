@@ -8,6 +8,8 @@ import Contact from "./Contact";
 import { contactGetLoader, getContactloaderById } from "./loaders/contactLoaders";
 import { DeleteContactaction, EditContactaction, createContactaction } from "./actions/actionContact";
 import EditContact from "./EditContact";
+import IndexContent from ".";
+
 
 const router = createBrowserRouter([
   {
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
     action: createContactaction,
 
     children: [
+      { index: true, element: <IndexContent /> },
       {
         path: "/contacts/:contactId",
         element: <Contact />,
