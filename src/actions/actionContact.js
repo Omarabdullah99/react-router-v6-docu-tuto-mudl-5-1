@@ -14,6 +14,8 @@ export async function createContactaction() {
   }
 
   export async function DeleteContactaction({ params }) {
+    throw new Error("oh dang!");
+
     await deleteContact(params.contactId);
     return redirect("/");
   }
