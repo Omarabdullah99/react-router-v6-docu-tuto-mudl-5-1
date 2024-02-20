@@ -16,6 +16,12 @@ export default function Root() {
     document.getElementById("q").value = q;
   }, [q]);
 
+  const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has(
+      "q"
+    );
+
   return (
     <>
       <div id="sidebar">
@@ -32,7 +38,14 @@ export default function Root() {
               onChange={(event) => {
                 submit(event.currentTarget.form);
               }}
+              className={searching ? "loading" : ""}
             />
+            <div
+            id="search-spinner"
+            aria-hidden
+            hidden={!searching}
+          />
+
             <div id="search-spinner" aria-hidden hidden={true} />
             <div className="sr-only" aria-live="polite"></div>
           </Form>
